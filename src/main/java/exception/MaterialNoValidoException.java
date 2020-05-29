@@ -1,3 +1,5 @@
+package exception;
+
 public class MaterialNoValidoException extends RuntimeException {
 
     public MaterialNoValidoException(){

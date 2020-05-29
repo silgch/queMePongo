@@ -1,3 +1,8 @@
+import prenda.Categoria;
+import prenda.Material;
+import prenda.Prenda;
+import prenda.TipoDePrenda;
+
 import java.awt.*;
 
 public class Main {
@@ -8,7 +13,7 @@ public class Main {
 
 
 
-    //TipoDePrenda remera = new TipoDePrenda("Remera", Categoria.PARTE_SUPERIOR );
+    //prenda.TipoDePrenda remera = new prenda.TipoDePrenda("Remera", prenda.Categoria.PARTE_SUPERIOR );
     REMERA.agregarMaterialPermitido(Material.ALGODON);
 
 

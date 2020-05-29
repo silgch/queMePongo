@@ -1,5 +1,10 @@
+package prenda;
+
+import clima.Clima;
+import exception.ColorSecundarioNoDefinidoException;
+import exception.MaterialNoValidoException;
+
 import java.awt.*;
-import java.util.Optional;
 
 public class Prenda {
     private String nombre;
@@ -7,12 +12,12 @@ public class Prenda {
     private Color color;
     private Color colorSec;
     private Material material;
-
+    private float tempMaxAdecuada;
 
 
     public Prenda(String nombre, TipoDePrenda tipo, Color color, Material material) {
         //Valido que el material sea apto para el Tipo de prenda.
-        if(tipo.esValidoMaterial(material)){
+        if(tipo.admiteMaterial(material)){
             this.nombre = nombre;
             this.tipo = tipo;
             this.color = color;
@@ -25,11 +30,13 @@ public class Prenda {
         }
     }
 
+    public boolean esAptaParaLaTemperaturaActual() {
+        return tempMaxAdecuada <= Clima.instance().obtenerClimaActual();
+    }
+
 
     //Getter
-    public String getTipo(){
-        return tipo.getNombre();
-    }
+    public TipoDePrenda getTipo(){ return tipo; }
     public Categoria getCategoria(){
        return tipo.getCategoria();
     }
@@ -45,5 +52,6 @@ public class Prenda {
 
     //Setter
     public void setColorSecundario(Color unColor){ this.colorSec=unColor;}
+
 
 }

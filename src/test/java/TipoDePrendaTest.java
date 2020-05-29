@@ -2,6 +2,11 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import prenda.Categoria;
+import prenda.Material;
+import prenda.Prenda;
+import prenda.TipoDePrenda;
+
 import java.awt.Color;
 
 public class TipoDePrendaTest {

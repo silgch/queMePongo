@@ -1,0 +1,60 @@
+@startuml
+enum Categoria{
+    PARTE_SUPERIOR
+    PARTE_INFERIOR
+    ACCESORIOS
+    CALZADO
+}
+enum Material{
+    ALGODON
+    JEAN
+    GABARDINA
+    LINO...
+}
+class Prenda{
+    String nombre
+    TipoDePrenda tipo
+    Color color
+    Color colorSec
+    Material material
+    float tempMaxAdecuada
+    boolean esAptaParaLaTemperaturaActual()
+}
+enum TipoDePrenda{
+   ZAPATO
+   REMERA
+   PANTALON
+   GORRA...
+    getMaterialesPermitidos()
+    boolean admiteMaterial()
+    Categoria getCategoria()
+}
+class APIAccuWeather{
+    List<Map<String, Object>> getWeather()
+}
+class Clima{
+    float obtenerClimaActual()
+    void setApi()
+    Clima instance()
+}
+interface IAPIAccuWeather{
+    List<Map<String, Object>> getWeather()
+}
+class Sugerencia{
+    List<List<Prenda>> obtenerAtuendos()
+    List<List<Prenda>> obtenerAtuendosSegunClima()
+    List<Prenda> consultarPrendasAptasParaElClima()
+}
+
+Prenda --> Material
+TipoDePrenda --> Categoria
+TipoDePrenda --> Material
+Prenda --> TipoDePrenda
+Clima --> IAPIAccuWeather
+IAPIAccuWeather<|--APIAccuWeather
+Clima -->Clima
+Sugerencia -->Clima
+Sugerencia -->Prenda
+
+
+@enduml
